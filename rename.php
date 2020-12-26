@@ -6,6 +6,10 @@
  * @Repository: https://github.com/basemax/mysql-mariadb-rename-database-php
  */
 
+// Limit
+ini_set('max_execution_time', 0);
+set_time_limit(0);
+
 // Config
 $servername = "localhost";
 $username = "root";
