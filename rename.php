@@ -12,8 +12,6 @@ $username = "root";
 $password = "01";
 $dbname = "stock";
 $nextDbname= "newDB";
-$dbname = "newDB";
-$nextDbname= "stock";
 
 // Global variables
 $tables = [];
