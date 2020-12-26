@@ -37,6 +37,29 @@ if($mysqli->connect_error) {
 // https://mariadb.com/kb/en/mariadb-transactions-and-isolation-levels-for-sql-server-users/
 $mysqli->autocommit(FALSE);
 
+$sql = "SHOW tables;";
+$result = mysqli_query($mysqli, $sql);
+if(mysqli_num_rows($result) > 0) {
+  while($row = mysqli_fetch_assoc($result)) {
+    if(isset($row["Tables_in_".$dbname])) {
+      $tables[] = $row["Tables_in_".$dbname];
+    }
+  }
+}
+
+// Print tables
+print_r($tables);
+
+// Move tables
+$mysqli->query("SET FOREIGN_KEY_CHECKS = 0;");
+foreach($tables as $table) {
+  $newTable = $nextDbname. ".".$table;
+  $table = $dbname.".".$table;
+  // $mysqli->query("RENAME TABLE $table TO $newTable;");
+  $mysqli->query("ALTER TABLE $table RENAME $newTable;");
+}
+$mysqli->query("SET FOREIGN_KEY_CHECKS = 1;");
+
 // Close transactions
 $mysqli->commit();
 
