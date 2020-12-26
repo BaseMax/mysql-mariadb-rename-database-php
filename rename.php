@@ -39,3 +39,12 @@ $mysqli->autocommit(FALSE);
 
 // Close transactions
 $mysqli->commit();
+
+// Drop old tables: not required
+// foreach($tables as $table) {
+//   $mysqli->query("DROP TABLE ".$table);
+// }
+
+// Close
+mysqli_close($mysqli);
+// mysqli_close($mysqliNext);
