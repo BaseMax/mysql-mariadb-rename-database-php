@@ -1,6 +1,6 @@
 # mysql-mariadb-rename-database-php
 
-A tiny script to rename and move all of your table into a new database. (using pure PHP)
+A tiny script to rename and move all of your table into a new MySQL/MriaDB database. (using pure PHP)
 
 ## Using
 
